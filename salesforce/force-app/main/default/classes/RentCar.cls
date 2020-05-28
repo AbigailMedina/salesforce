@@ -4,10 +4,13 @@ public with sharing class RentCar {
         //create car_Reservation__c with Car__c set to carId
         Date startD = Date.valueOf(startDate);
         Date endD = Date.valueOf(endDate);
-        Car_Reservation__c res = new Car_Reservation__c(
-            Reservation_Start__c = startD,
-            Reservation_End__c = endD,
-            Car__c = carId);
+        Car_Reservation__c res;
+        if (Schema.sObjectType.Car_Reservation__c.isCreateable()) {
+            res= new Car_Reservation__c(
+                Reservation_Start__c = startD,
+                Reservation_End__c = endD,
+                Car__c = carId);
+         } 
         try{
             insert res;
         }catch(DMLException err){
