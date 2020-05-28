@@ -3,7 +3,7 @@ import { registerListener, unregisterAllListeners } from 'c/pubsub';
 import { CurrentPageReference } from 'lightning/navigation'
 import LL from '@salesforce/resourceUrl/Leaflet';
 import { loadStyle, loadScript } from 'lightning/platformResourceLoader'
-import { showToast } from 'c/util';
+import { showToast } from 'c/util'
 
 export default class CarLocation extends LightningElement {
     @track car;
@@ -49,12 +49,10 @@ export default class CarLocation extends LightningElement {
             
         }
     }
-    get carSelected(){
-        //because this.car is being wired, it never has a null value. 
-        //its data might be null though
+    get hasCar(){
         if(this.car){
-            return true;
-            //could use slds-is-expanded or collapsed as class
-        }return false;
+            return 'slds-is-expanded';
+        }
+        return 'slds-is-collapsed';
     }
 }

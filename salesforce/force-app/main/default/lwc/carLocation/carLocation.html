@@ -1,10 +1,7 @@
 <template>
-    <template if:true={carSelected}>
+    <div class={hasCar}>
         <lightning-card title="Car Location">
             <div class="map" style="height:300px; width:auto"></div>
         </lightning-card>
-    </template>
-    <template if:false={carSelected}>
-        <lightning-card title="Select a car to see its location"></lightning-card>
-    </template>
+    </div>
 </template>

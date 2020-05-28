@@ -35,11 +35,11 @@ export default class ReservationRecordForm extends LightningElement {
         // this.title = "Reserve "+String.toString(payload.Name);
         this.title = "Reserve "+payload.Name;
     }
-    get carSelected(){
-        //because this.car is being wired, it never has a null value. 
-        //its data might be null though
+
+    get hasCar(){
         if(this.selectedCar){
-            return true;
-        }return false;
+            return 'slds-is-expanded';
+        }
+        return 'slds-is-collapsed';
     }
 }

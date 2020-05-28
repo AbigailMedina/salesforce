@@ -1,5 +1,5 @@
 <template>
-    <template if:true={carSelected}>
+    <div class = {hasCar}>
         <lightning-card title={title}>
             <lightning-record-form
                 fields={fields} 
@@ -9,8 +9,5 @@
                 onsuccess={handleSuccess}>
             </lightning-record-form>
         </lightning-card>
-    </template>
-    <template if:false={carSelected}>
-        <lightning-card title="Select a car"></lightning-card>
-    </template>
+    </div>
 </template>
