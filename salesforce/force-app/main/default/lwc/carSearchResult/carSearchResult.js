@@ -1,5 +1,5 @@
 import { LightningElement, api, wire, track } from 'lwc';
-import { ShowToastEvent } from 'lightning/platformShowToastEvent'
+import { showToast } from 'c/util';
 
 import getCars from '@salesforce/apex/CarSearchResultController.getCars'
 export default class CarSearchResult extends LightningElement {
@@ -14,7 +14,7 @@ export default class CarSearchResult extends LightningElement {
         if(data){
             this.cars = data;
         }else if (error){
-            this.showToast("could not fetch cars",error.body.message,"error")
+            this.showToast("could not fetch cars",error.body.message,"error", this)
         }
     }
 
@@ -22,15 +22,6 @@ export default class CarSearchResult extends LightningElement {
         if(this.cars){
             return true;
         }return false;
-    }
-
-    showToast(title,message,variant){
-        const toastEvt = new ShowToastEvent({
-            title:title,
-            message:message,
-            variant:variant
-        })
-        this.dispatchEvent(toastEvt);
     }
 
     handleCarSelected(event){

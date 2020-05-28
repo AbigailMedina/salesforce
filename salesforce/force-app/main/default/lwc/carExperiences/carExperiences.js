@@ -1,5 +1,5 @@
 import { LightningElement, track, api } from 'lwc';
-import { ShowToastEvent } from 'lightning/platformShowToastEvent'
+import { showToast } from 'c/util';
 import { NavigationMixin } from 'lightning/navigation'
 import getExperiences from '@salesforce/apex/CarExperience.getExperiences'
 
@@ -32,17 +32,8 @@ export default class CarExperiences extends NavigationMixin(LightningElement) {
             this.carExperiences = res;
             console.log(res);
         }).catch(error => {
-            this.showToast('Error',error.message.body,'error')
+            showToast('Error',error.message.body,'error', this)
         })
-    }
-
-    showToast(title,message,variant){
-        const toastEvent = new ShowToastEvent({
-            title:title,
-            message:message,
-            variant:variant
-        })
-        this.dispatchEvent(toastEvent);
     }
 
     userClickHandler(event){

@@ -35,6 +35,12 @@
             ],
             "c/carSearchResult": [
                 "carSearchResult/carSearchResult.js"
+            ],
+            "c/reservationRecordForm": [
+                "reservationRecordForm/reservationRecordForm.js"
+            ],
+            "c/util": [
+                "util/util.js"
             ]
         }
     },

@@ -1,5 +1,5 @@
 import { LightningElement, track, wire } from 'lwc';
-import { ShowToastEvent } from 'lightning/platformShowToastEvent'
+import { showToast } from 'c/util';
 import { NavigationMixin } from 'lightning/navigation'
 import getCarTypes from '@salesforce/apex/CarSearchFormController.getCarTypes'
 
@@ -23,7 +23,7 @@ export default class CarSearchForm extends NavigationMixin(LightningElement) {
             this.handleCarTypeChange({detail:this.carTypes[0]})
             //dummy call to handleCarTypeChange to display all car types on start
         }else if(error){
-            this.showToast("wire error",error.body.message,"error")
+            showToast("wire error",error.body.message,"error", this)
         }
     }
 
@@ -41,14 +41,5 @@ export default class CarSearchForm extends NavigationMixin(LightningElement) {
                 actionName: 'new'
             }
         })
-    }
-
-    showToast(title,message,variant){
-        const toastEvt = new ShowToastEvent({
-            title:title,
-            message:message,
-            variant:variant
-        })
-        this.dispatchEvent(toastEvt);
     }
 }

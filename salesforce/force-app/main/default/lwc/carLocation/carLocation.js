@@ -3,7 +3,7 @@ import { registerListener, unregisterAllListeners } from 'c/pubsub';
 import { CurrentPageReference } from 'lightning/navigation'
 import LL from '@salesforce/resourceUrl/Leaflet';
 import { loadStyle, loadScript } from 'lightning/platformResourceLoader'
-import { ShowToastEvent } from 'lightning/platformShowToastEvent'
+import { showToast } from 'c/util';
 
 export default class CarLocation extends LightningElement {
     @track car;
@@ -22,21 +22,14 @@ export default class CarLocation extends LightningElement {
             ]).then(()=>{
                 this.leafletLoaded = true
             }).catch((err)=>{
-                this.showToast('ERROR',err.body.message,'error')
+                showToast('ERROR',err.body.message,'error', this)
             })
         }
     }
     disconnectedCallback(){
         unregisterAllListeners(this);
     }
-    showToast(title, message, variant){
-        const errToast = new ShowToastEvent({
-            title: title,
-            message: message,
-            variant: variant
-        })
-        this.dispatchEvent(errToast);
-    }
+    
     callBackForCarSelected(payload){
         this.car = payload
         if(this.leafletLoaded){

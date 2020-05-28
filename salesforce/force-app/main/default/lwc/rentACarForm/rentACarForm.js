@@ -1,6 +1,7 @@
 import { LightningElement, track, wire } from 'lwc';
 import { registerListener, unregisterAllListeners } from 'c/pubsub';
 import { CurrentPageReference } from 'lightning/navigation'
+import { showToast } from 'c/util';
 
 import getDatesAvailable from '@salesforce/apex/RentCar.getDatesAvailable';
 import rentThisCar from '@salesforce/apex/RentCar.rentThisCar';
@@ -32,7 +33,7 @@ export default class RentACarForm extends LightningElement {
                 return {label: date, value: date}
             });
         }).catch(error => {
-            // this.showToast('Error',error.message.body,'error')
+            showToast('Error',error.message.body,'error', this)
             console.log('error')
         });  
     }
