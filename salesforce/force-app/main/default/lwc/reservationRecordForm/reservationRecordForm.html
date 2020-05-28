@@ -1,3 +1,16 @@
 <template>
-    
+    <template if:true={carSelected}>
+        <lightning-card title={title}>
+            <lightning-record-form
+                fields={fields} 
+                mode="edit"
+                object-api-name={objectApiName}
+                onsubmit={handleSubmit}
+                onsuccess={handleSuccess}>
+            </lightning-record-form>
+        </lightning-card>
+    </template>
+    <template if:false={carSelected}>
+        <lightning-card title="Select a car"></lightning-card>
+    </template>
 </template>
