@@ -2,7 +2,41 @@
     "compilerOptions": {
         "experimentalDecorators": true,
         "baseUrl": ".",
-        "paths": {}
+        "paths": {
+            "c/carLocation": [
+                "carLocation/carLocation.js"
+            ],
+            "c/pubsub": [
+                "pubsub/pubsub.js"
+            ],
+            "c/addCarExperience": [
+                "addCarExperience/addCarExperience.js"
+            ],
+            "c/rentACarForm": [
+                "rentACarForm/rentACarForm.js"
+            ],
+            "c/carDetails": [
+                "carDetails/carDetails.js"
+            ],
+            "c/carDetail": [
+                "carDetail/carDetail.js"
+            ],
+            "c/carSearchForm": [
+                "carSearchForm/carSearchForm.js"
+            ],
+            "c/carExperiences": [
+                "carExperiences/carExperiences.js"
+            ],
+            "c/carSearch": [
+                "carSearch/carSearch.js"
+            ],
+            "c/carTile": [
+                "carTile/carTile.js"
+            ],
+            "c/carSearchResult": [
+                "carSearchResult/carSearchResult.js"
+            ]
+        }
     },
     "include": [
         "**/*",

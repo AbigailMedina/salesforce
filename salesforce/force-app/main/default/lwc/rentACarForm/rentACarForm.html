@@ -1,0 +1,28 @@
+<template>
+    <template if:true={carSelected}>
+        <lightning-layout multiple-rows="true">
+            <lightning-layout-item size="12">
+                <lightning-combobox
+                    name="start reservation date"
+                    label="start reservation date"
+                    placeholder="Select Reservation start date"
+                    options={options}
+                    onchange={handleStartDateChange} >
+                </lightning-combobox>
+                <lightning-combobox
+                    name="end reservation date"
+                    label="end reservation date"
+                    placeholder="Select Reservation end date"
+                    options={options}
+                    onchange={handleEndDateChange} >
+            </lightning-combobox>
+            <lightning-button label="find" onclick={findDatesAvail}></lightning-button>
+
+            <lightning-button label="rent" onclick={rentCar}></lightning-button>
+            </lightning-layout-item>
+        </lightning-layout>
+    </template>
+    <template if:false={carSelected}>
+        <lightning-card title="Select a car to see its details"></lightning-card>
+    </template>
+</template>

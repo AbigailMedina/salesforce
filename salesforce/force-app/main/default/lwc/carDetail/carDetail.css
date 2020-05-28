@@ -1,0 +1,16 @@
+.label{
+    font-weight: bold;
+    display: block;
+}
+.carproperty{
+    margin-bottom: 3px;
+}
+.image-view{
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 200px;
+    margin: 2px;
+}
+.car{
+    border-radius: 5px;
+}

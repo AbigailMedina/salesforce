@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cost__c</fullName>
+    <description>number of days reserved multiplied by cost per day</description>
+    <externalId>false</externalId>
+    <formula>Car__r.Per_Day_Rent__c * ( Reservation_End__c - Reservation_Start__c)</formula>
+    <label>Cost</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

@@ -1,0 +1,45 @@
+<template>
+    <lightning-card name={carName}>
+        
+        <lightning-layout multiple-rows>
+            <lightning-layout-item 
+                size="12"
+                small-device-size="6"
+                medium-device-size="6"
+                large-device-size="6">
+                <div class="slds-p-horizontal_small">
+                    <div class="carproperty">
+                        <span class="label">Owner Name:</span>
+                        <lightning-formatted-text value={carOwnerName}></lightning-formatted-text>
+                    </div>
+                    <div class="carproperty">
+                        <span class="label">Type:</span>
+                        <lightning-formatted-text value={carType}></lightning-formatted-text>
+                    </div>
+                    <div class="carproperty">
+                        <span class="label">Build Year:</span>
+                        <lightning-formatted-text value={carBuildYear}></lightning-formatted-text>
+                    </div>
+                    <div class="carproperty">
+                        <span class="label">Per Day Rent:</span>
+                        <lightning-formatted-text value={carPerDayRent}></lightning-formatted-text>
+                    </div>
+                    <div class="carproperty">
+                        <span class="label">Mileage:</span>
+                        <lightning-formatted-text value={carMileage}></lightning-formatted-text>
+                    </div>
+                </div>
+            </lightning-layout-item>
+            <lightning-layout-item 
+                size="12"
+                small-device-size="6"
+                medium-device-size="6"
+                large-device-size="6">
+                <img src={carPictureUrl} class="car slds-align_absolute-center" alt="car picture"/>
+            </lightning-layout-item>
+        </lightning-layout>
+        <lightning-button-group>
+            <lightning-button label="full details" onclick={fullDetails}></lightning-button>
+        </lightning-button-group>
+    </lightning-card>
+</template>
